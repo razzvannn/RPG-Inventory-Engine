@@ -19,7 +19,7 @@ endif()
 add_executable(${PROJECT_NAME}
         main.cpp
         Item.cpp
-        Itemspecial.cpp
+        ItemSpecial.cpp
         Arma.cpp
         Armura.cpp
         Consumabil.cpp
