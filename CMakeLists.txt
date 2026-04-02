@@ -17,6 +17,7 @@ endif()
 
 # Main executable
 add_executable(${PROJECT_NAME}
+        main.cpp
         Item.cpp
         Itemspecial.cpp
         Arma.cpp
