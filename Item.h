@@ -8,7 +8,7 @@ protected:
     static int nrObiecte;
 
 public:
-    Item(std::string n);
+    explicit Item(const std::string& n);
     virtual ~Item() = default;
 
     virtual void afiseaza() const = 0;

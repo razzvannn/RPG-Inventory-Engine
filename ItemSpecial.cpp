@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-ItemSpecial::ItemSpecial(string nume) : Item(nume), Echipament(nume), ConsumabilBase(nume) {}
+ItemSpecial::ItemSpecial(const string& nume) : Item(nume), Echipament(nume), ConsumabilBase(nume) {}
 
 void ItemSpecial::afiseaza() const {
     cout << "Item Special: " << nume << endl;

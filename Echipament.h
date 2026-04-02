@@ -3,6 +3,6 @@
 
 class Echipament : virtual public Item {
 public:
-    Echipament(std::string) {}
+    explicit Echipament(const std::string& /*n*/) {}
     virtual ~Echipament()= default;
 };

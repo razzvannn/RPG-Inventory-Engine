@@ -3,5 +3,5 @@
 
 class ConsumabilBase : virtual public Item {
 public:
-    ConsumabilBase(std::string) {}
+    explicit ConsumabilBase(const std::string& /*n*/) {}
 };

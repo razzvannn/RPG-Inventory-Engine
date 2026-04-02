@@ -4,7 +4,7 @@
 class Consumabil : public Item {
     int heal;
 public:
-    Consumabil(std::string n, int h);
+    explicit Consumabil(const std::string& n, int h);
     void afiseaza() const override;
     void foloseste() override;
     Item* clona() const override;

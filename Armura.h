@@ -4,7 +4,7 @@
 class Armura : public Echipament {
     int def;
 public:
-    Armura(std::string n, int a);
+    explicit Armura(const std::string& n, int a);
     void afiseaza() const override;
     void foloseste() override;
     Item* clona() const override;

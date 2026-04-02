@@ -4,7 +4,7 @@
 
 class ItemSpecial : virtual public Echipament, virtual public ConsumabilBase {
 public:
-    ItemSpecial(std::string nume);
+    explicit ItemSpecial(const std::string& nume);
     void afiseaza() const override;
     void foloseste() override;
     Item* clona() const override;
