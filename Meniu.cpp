@@ -16,17 +16,20 @@ Meniu::Meniu() {}
 void Meniu::run() {
     int optiune = -1;
 
-    while (optiune != 0) {
+    while (true) {
         cout << "\n========================================" << endl;
         cout << "[1.Adauga | 2.Sterge | 3.Afiseaza | 4.Foloseste | 0.Iesire]" << endl;
         cout << "Alege: ";
 
         if (!(cin >> optiune)) {
-            cout << "Te rog introdu un numar valid!" << endl;
+            if (cin.eof()) break;
+
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
+
+        if (optiune == 0) break;
 
         try {
             if (optiune == 1) {
@@ -61,19 +64,14 @@ void Meniu::run() {
                     cout << "Durabilitate: "; cin >> dur;
                     player.getInv().adauga(new Topor(nume, dmg, dur));
                 }
-                else {
-                    cout << "Tip invalid!" << endl;
-                }
             }
             else if (optiune == 2) {
                 int idx;
                 cout << "Index pentru stergere: ";
                 cin >> idx;
                 player.getInv().sterge(idx);
-                cout << "Obiect sters cu succes!" << endl;
             }
             else if (optiune == 3) {
-                cout << "\n--- INVENTAR ---" << endl;
                 player.getInv().afisare();
                 cout << "Total Item create: " << Item::getTotal() << endl;
             }
@@ -90,9 +88,6 @@ void Meniu::run() {
         catch (const exception& e) {
             cout << "\n[EROARE STANDARDA]: " << e.what() << endl;
         }
-
-        cin.clear();
     }
-
     cout << "Iesire..." << endl;
 }
