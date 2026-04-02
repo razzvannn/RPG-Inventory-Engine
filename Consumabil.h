@@ -1,16 +1,11 @@
 #pragma once
-#include "ConsumabilBase.h"
-#include <iostream>
-#include <string>
+#include "Item.h"
 
-using namespace std;
-
-class Consumabil : public ConsumabilBase {
-private:
+class Consumabil : public Item {
     int heal;
 public:
-    Consumabil(string nume, int heal);
-    void foloseste() override;
+    Consumabil(std::string n, int h);
     void afiseaza() const override;
+    void foloseste() override;
     Item* clona() const override;
 };

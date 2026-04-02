@@ -3,14 +3,18 @@
 #include "Item.h"
 
 class Inventar {
+private:
     std::vector<Item*> items;
+
 public:
-    Inventar() = default;
+    Inventar();
     ~Inventar();
-    Inventar(const Inventar& other);
-    Inventar& operator=(const Inventar& other);
+
+    Inventar(const Inventar&) = delete;
+    Inventar& operator=(const Inventar&) = delete;
+
     void adauga(Item* i);
-    void afiseaza();
-    void foloseste(int i);
-    void sterge(int i);
+    void sterge(int idx);
+    void afisare() const;
+    void foloseste(int idx);
 };

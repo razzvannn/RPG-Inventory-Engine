@@ -1,17 +1,11 @@
 #pragma once
 #include "Item.h"
 
-class Magie : virtual public Item {
-protected:
+class Magie : public Item {
     int charge;
-
 public:
-    Magie(string nume, int charge) : Item(nume), charge(charge) {}
-
-
+    Magie(std::string n, int c);
     void afiseaza() const override;
     void foloseste() override;
     Item* clona() const override;
-
-    int getCharge() const { return charge; }
 };

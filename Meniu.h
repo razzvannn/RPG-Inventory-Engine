@@ -3,13 +3,9 @@
 
 class Meniu {
 private:
-    static Meniu* inst;
     Player player;
 
-    Meniu();
-
 public:
-    static Meniu* get();
-
+    Meniu();
     void run();
 };

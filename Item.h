@@ -1,30 +1,19 @@
 #pragma once
-#include <iostream>
 #include <string>
-
-using namespace std;
+#include <iostream>
 
 class Item {
 protected:
-    string nume;
+    std::string nume;
+    static int nrObiecte;
 
 public:
-    Item(string nume) : nume(nume) {}
+    Item(std::string n);
+    virtual ~Item();
 
-
-    virtual ~Item() {}
-
-
-    virtual void afiseaza() const {
-        cout << "Item: " << nume;
-    }
-
-    virtual void foloseste() {
-        cout << "Folosesti un item generic: " << nume << endl;
-    }
-
-
+    virtual void afiseaza() const = 0;
+    virtual void foloseste() = 0;
     virtual Item* clona() const = 0;
 
-    string getNume() const { return nume; }
+    static int getTotal();
 };

@@ -3,5 +3,5 @@
 
 class ConsumabilBase : virtual public Item {
 public:
-    ConsumabilBase(string nume) : Item(nume) {}
+    ConsumabilBase(std::string nume) : Item(nume) {}
 };

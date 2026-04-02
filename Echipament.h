@@ -3,5 +3,6 @@
 
 class Echipament : virtual public Item {
 public:
-    Echipament(string nume) : Item(nume) {}
+    Echipament(std::string n) : Item(n) {}
+    virtual ~Echipament() {}
 };

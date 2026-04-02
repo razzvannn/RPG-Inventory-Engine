@@ -4,8 +4,8 @@
 
 class ItemSpecial : public Echipament, public ConsumabilBase {
 public:
-    ItemSpecial(string nume);
-    void foloseste() override;
+    ItemSpecial(std::string nume);
     void afiseaza() const override;
+    void foloseste() override;
     Item* clona() const override;
 };

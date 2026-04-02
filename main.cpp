@@ -1,5 +1,7 @@
 #include "Meniu.h"
+
 int main() {
-    Meniu::get()->run();
+    Meniu joc;
+    joc.run();
     return 0;
 }

@@ -19,9 +19,15 @@ add_executable(proiect1 main.cpp
         Magie.cpp
         Magie.h
         Exceptii.h
-        Inventar.cpp
         Inventar.h
         Player.cpp
         Player.h
         Meniu.cpp
-        Meniu.h)
+        Meniu.h
+        MagicItem.h
+        Topor.h
+        Scut.h
+        Potiune.h
+        Hrana.h
+        Exceptions.h
+        Inventar.cpp)

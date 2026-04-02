@@ -2,16 +2,10 @@
 #include "Echipament.h"
 
 class Armura : public Echipament {
-private:
-    int protectie;
-
+    int def;
 public:
-    Armura(string nume, int protectie);
-
-
-    void foloseste() override;
+    Armura(std::string n, int a);
     void afiseaza() const override;
-
-
+    void foloseste() override;
     Item* clona() const override;
 };

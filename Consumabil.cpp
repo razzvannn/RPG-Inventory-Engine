@@ -1,17 +1,16 @@
 #include "Consumabil.h"
 #include <iostream>
 
-Consumabil::Consumabil(string nume, int heal)
-    : Item(nume), ConsumabilBase(nume) {
-    this->heal = heal;
+using namespace std;
+
+Consumabil::Consumabil(string n, int h) : Item(n), heal(h) {}
+
+void Consumabil::afiseaza() const {
+    cout << "[Consumabil] " << nume << " | Heal: " << heal << endl;
 }
 
 void Consumabil::foloseste() {
-    cout << "Heal +" << heal << endl;
-}
-
-void Consumabil::afiseaza() const {
-    cout << "Consumabil: " << nume << endl;
+    cout << "Ai baut " << nume << "." << endl;
 }
 
 Item* Consumabil::clona() const {
