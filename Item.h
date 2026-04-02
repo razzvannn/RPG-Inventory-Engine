@@ -9,7 +9,7 @@ protected:
 
 public:
     Item(std::string n);
-    virtual ~Item();
+    virtual ~Item() = default;
 
     virtual void afiseaza() const = 0;
     virtual void foloseste() = 0;
