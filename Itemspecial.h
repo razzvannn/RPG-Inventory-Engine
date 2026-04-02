@@ -2,7 +2,7 @@
 #include "Echipament.h"
 #include "ConsumabilBase.h"
 
-class ItemSpecial : public Echipament, public ConsumabilBase {
+class ItemSpecial : virtual public Echipament, virtual public ConsumabilBase {
 public:
     ItemSpecial(std::string nume);
     void afiseaza() const override;
