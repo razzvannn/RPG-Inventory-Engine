@@ -1,6 +1,5 @@
-#include<iostream>
-
-int main(){
-    std::cout<<"Hello world!";
+#include "Meniu.h"
+int main() {
+    Meniu::get()->run();
     return 0;
 }
