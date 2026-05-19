@@ -1,5 +1,5 @@
 #pragma once
-#include "Inventar.h"
+#include "Inventar.hpp"
 
 class Player {
 private:

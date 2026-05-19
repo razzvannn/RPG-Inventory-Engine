@@ -26,7 +26,8 @@ add_executable(${PROJECT_NAME}
         Magie.cpp
         Player.cpp
         Meniu.cpp
-        Inventar.cpp
+        ItemFactory.h
+        ItemFactory.cpp
 )
 
 
