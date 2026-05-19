@@ -1,5 +1,5 @@
 #include "Player.h"
 
-Inventar& Player::getInv() {
+Inventar<*Item>& Player::getInv() {
     return inv;
 }

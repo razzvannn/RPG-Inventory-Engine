@@ -15,5 +15,6 @@ public:
     virtual void foloseste() = 0;
     virtual Item* clona() const = 0;
 
+    std::string getNume() const { return nume; } //Adaugat pentru Observer
     static int getTotal();
 };

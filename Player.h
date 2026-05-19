@@ -1,10 +1,11 @@
 #pragma once
 #include "Inventar.hpp"
+#include "Item.h"
 
 class Player {
 private:
-    Inventar inv;
+    Inventar<*Item> inv; //Utilizare Template
 
 public:
-    Inventar& getInv();
+    Inventar<*Item>& getInv() ;
 };
