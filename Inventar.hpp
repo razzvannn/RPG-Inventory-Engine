@@ -94,3 +94,6 @@ public:
         items[idx]->foloseste();
     }
 };
+
+
+// Inlocuieste Inventar.h si Inventar.cpp, avand clasa template

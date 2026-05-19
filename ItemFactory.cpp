@@ -15,3 +15,5 @@ Item* ItemFactory::createItem(int tip, const std::string& nume, int param1, int 
         default: return nullptr;
     }
 }
+
+//Implementarea logicii de instantiere de Factory Method, proiect 2

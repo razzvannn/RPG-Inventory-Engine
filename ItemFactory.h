@@ -6,3 +6,5 @@ class ItemFactory {
 public:
     static Item* createItem(int tip, const std::string& nume, int param1, int param2=0);
 };
+
+//Interfata fabricii polimorfice, proiect 2
