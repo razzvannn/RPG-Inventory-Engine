@@ -20,14 +20,13 @@ add_executable(${PROJECT_NAME}
         main.cpp
         Item.cpp
         ItemSpecial.cpp
+        ItemFactory.cpp
         Arma.cpp
         Armura.cpp
         Consumabil.cpp
         Magie.cpp
         Player.cpp
         Meniu.cpp
-        ItemFactory.h
-        ItemFactory.cpp
 )
 
 

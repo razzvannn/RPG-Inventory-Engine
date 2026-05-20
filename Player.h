@@ -4,8 +4,8 @@
 
 class Player {
 private:
-    Inventar<*Item> inv; //Utilizare Template
+    Inventar<Item*> inv; //Utilizare Template
 
 public:
-    Inventar<*Item>& getInv() ;
+    Inventar<Item*>& getInv() ;
 };

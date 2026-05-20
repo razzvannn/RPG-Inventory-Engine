@@ -1,9 +1,5 @@
 #include "Meniu.h"
-#include "Arma.h"
-#include "Armura.h"
-#include "Consumabil.h"
-#include "Magie.h"
-#include "Topor.h"
+#include "ItemFactory.h"
 #include "Exceptii.h"
 #include <iostream>
 #include <string>
@@ -11,19 +7,20 @@
 
 using namespace std;
 
-Meniu::Meniu() {}
+Meniu::Meniu() {
+    player.getInv().adaugaObservator(&logger);
+}
 
 void Meniu::run() {
     int optiune = -1;
 
     while (true) {
         cout << "\n========================================" << endl;
-        cout << "[1.Adauga | 2.Sterge | 3.Afiseaza | 4.Foloseste | 0.Iesire]" << endl;
+        cout << "1.Adauga | 2.Sterge | 3.Afiseaza | 4.Foloseste | 0.Iesire" << endl;
         cout << "Alege: ";
 
         if (!(cin >> optiune)) {
             if (cin.eof()) break;
-
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
@@ -39,30 +36,25 @@ void Meniu::run() {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
                 string nume;
-                cout << "Nume obiect: ";
+                cout << "Nume: ";
                 getline(cin, nume);
 
-                if (tip == 1) {
-                    int dmg; cout << "Damage: "; cin >> dmg;
-                    player.getInv().adauga(new Arma(nume, dmg));
-                }
-                else if (tip == 2) {
-                    int prot; cout << "Aparare (DEF): "; cin >> prot;
-                    player.getInv().adauga(new Armura(nume, prot));
-                }
-                else if (tip == 3) {
-                    int heal; cout << "Heal: "; cin >> heal;
-                    player.getInv().adauga(new Consumabil(nume, heal));
-                }
-                else if (tip == 4) {
-                    int charge; cout << "Charge: "; cin >> charge;
-                    player.getInv().adauga(new Magie(nume, charge));
-                }
+                int param1 = 0, param2 = 0;
+                if (tip == 1) { cout << "Damage: "; cin >> param1; }
+                else if (tip == 2) { cout << "DEF: "; cin >> param1; }
+                else if (tip == 3) { cout << "Heal: "; cin >> param1; }
+                else if (tip == 4) { cout << "Charge: "; cin >> param1; }
                 else if (tip == 5) {
-                    int dmg, dur;
-                    cout << "Damage: "; cin >> dmg;
-                    cout << "Durabilitate: "; cin >> dur;
-                    player.getInv().adauga(new Topor(nume, dmg, dur));
+                    cout << "Damage: "; cin >> param1;
+                    cout << "Durabilitate: "; cin >> param2;
+                }
+
+                // Utilizare design pattern factory method pt decuplare
+                Item* nou = ItemFactory::createItem(tip, nume, param1, param2);
+                if (nou != nullptr) {
+                    player.getInv().adauga(nou);
+                } else {
+                    cout << "Eroare!" << endl;
                 }
             }
             else if (optiune == 2) {
@@ -73,7 +65,7 @@ void Meniu::run() {
             }
             else if (optiune == 3) {
                 player.getInv().afisare();
-                cout << "Total Item create: " << Item::getTotal() << endl;
+                cout << "Total Item create in sesiune: " << Item::getTotal() << endl;
             }
             else if (optiune == 4) {
                 int idx;
@@ -83,11 +75,10 @@ void Meniu::run() {
             }
         }
         catch (const ExceptieIndexInvalid& e) {
-            cout << "\n[EROARE]: " << e.what() << endl;
+            cout << "\n EROARE: " << e.what() << endl;
         }
         catch (const exception& e) {
-            cout << "\n[EROARE STANDARDA]: " << e.what() << endl;
+            cout << "\n EROARE GENERICA: " << e.what() << endl;
         }
     }
-    cout << "Iesire..." << endl;
 }
